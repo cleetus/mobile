@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Codiqa Prototypes</title>
+    <meta property="og:title" content="Codiqa - jQuery Mobile app builder" />
+    <meta property="og:description" content="Drag and drop jQuery Mobile app builder" />
+    <meta property="og:image" content="http://codiqa.com/static/images/icons/codiqa_twitter.jpg" />
+    <link rel="icon" href="/static/images/v2/app_icon_32x32.png" />
+    <link rel="stylesheet" href="/static/js/jquery-ui-custom/css/custom-theme/jquery-ui-1.8.16.custom.css" type="text/css" />
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap.custom.css" />
+    <link rel="stylesheet" href="/static/js/fileuploader/fileuploader.css" />
+    <link rel="stylesheet" href="/static/js/offline/reset-min.css" />
+    <link rel="stylesheet" href="/static/js/ext/prettify.css" />
+    <link rel="stylesheet" href="/static/js/ext/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" />
+    <link rel="stylesheet" href="/static/style/app.css?1334427860" media="screen" />
+    <link rel="stylesheet" href="/static/style/classes.css?1325051806" media="screen" />
+    <link rel="stylesheet" src="/static/js/ext/jwysiwyg/jwysiwyg/jquery.jwysiwyg.css" />
+    <script>
+    
+      var EMBED = true;
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/static/js/ext/handlebars.1.0.0.beta.3.js"></script>
+    <script type="text/javascript" src="/static/js/offline/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="/static/js/ext/ajaxManager.js"></script>
+    <script type="text/javascript" src="/static/js/ext/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js"></script>
+    <script type="text/javascript" src="/static/js/ext/prettify.js"></script>
+    <script type="text/javascript" src="/static/js/ext/js-beautify/beautify.js"></script>
+    <script type="text/javascript" src="/static/js/ext/js-beautify/beautify-html.js"></script>
+    <script type="text/javascript" src="/static/js/ext/jwysiwyg/jwysiwyg/jquery.wysiwyg.js"></script>
+    <script type="text/javascript" src="/static/js/offline/jquery.tinyscrollbar.js"></script>
+    <script type="text/javascript" src="/static/js/offline/jquery.nanoscroller.js"></script>
+    <!--<script type="text/javascript" src="/static/js/offline/jquery.lionbars.0.3.min.js"></script>-->
+    <script type="text/javascript" src="/static/js/ext/splitter.js"></script>
+    <script type="text/javascript" src="/static/js/offline/ace/ace-uncompressed.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/offline/ace/mode-html.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/offline/ace/theme-clouds.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/offline/jquery.hotkeys.js" charset="utf-8"></script>
+    <script src="/static/js/jquery.timeago.js"></script>
+    <script src="/static/js/ext/underscore.js"></script>
+    <script src="/static/js/ext/backbone.js"></script>
+    <script src="/static/js/ext/keymaster.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="/static/js/offline/wysihtml5-0.3.0_rc1.js"></script>
+    <script src="/static/compiled/codiqa.builder.js?1334865204"></script>
+  </head>
+  <body class="grid embed">
+    <div id="w">
+      <div id="h-w" class="chrome">
+        <div id="h">
+          <div id="h-logo">
+            
+            <a href="http://codiqa.com/" target="_blank" class="logo"><img style="margin-top: 1px" src="/static/images/v2/codiqa_builder_tree_icon.png" /><img style="margin-left: 1px; margin-top: 4px" src="/static/images/v2/codiqa_logo.png" /></a>
+            
+          </div>
+          <div class="clearfix" id="h-right">
+            
+            <div id="preview-slider"></div>
+            <div class="divider"></div>
+              
+                <a href="#" id="toolbar-app-save" class="button dark l clearfix">
+                  <div class="b-icon b-icon-download"></div>
+                  Download HTML
+                </a>
+              
+            
+          </div>
+        </div>
+      </div>
+      <div id="c-w">
+        <div id="c">
+          <div id="page-dialog">
+            <div class="error"></div>
+            <div>
+              New page name:
+            </div>
+            <div>
+              <input type="text" id="pagename" />
+            </div>
+          </div>
+          <div class="page">
+            <div id="b-toolbar" class="chrome clearfix">
+              <div class="l clearfix">
+                <a href="#" id="toolbar-undo" class="button disabled" title="Undo">
+                  <div class="b-icon-sheet b-icon-undo"></div>
+                </a>
+                <a href="#" id="toolbar-redo" class="button disabled" title="Redo">
+                  <div class="b-icon-sheet b-icon-redo"></div>
+                </a>
+              </div>
+              <div class="r clearfix">
+                <!--
+                <a href="#" id="toolbar-mode-live" class="standard-button l clearfix">
+                  <div class="l"></div>
+                  <div class="l-c">
+                    To the Cloud!
+                  </div>
+                  <div class="r"></div>
+                </a>
+                <div class="divider"></div>
+                -->
+                <div class="r-full clearfix">
+                  <div class="l hidden text"><span class="saving-text">Saving...</span></div>
+                  <div class="l hidden text">Last saved: <span class="last-saved"></span></div>
+                  
+                  <a href="#" id="toolbar-app-save-upgrade" class="standard-button l clearfix">
+                    <div class="l"></div>
+                    <div class="l-c">
+                      Save App
+                    </div>
+                    <div class="r"></div>
+                  </a>
+                  <div class="divider"></div>
+                  <a href="#" id="toolbar-app-save" class="standard-button l clearfix">
+                    <div class="l"></div>
+                    <div class="l-c">
+                      Download HTML
+                    </div>
+                    <div class="r"></div>
+                  </a>
+                  <div class="divider"></div>
+                  
+                  
+                  <ul data-toggle="dropdown" id="dropdown-size" class="nav pills">
+                    <li class="dropdown" id="menu2">
+                      <a class="dropdown-toggle standard-button l clearfix" data-toggle="dropdown" href="#menu2">
+                        <div class="l"></div>
+                        <div class="l-c">
+                          Device Size
+                          <b class="caret"></b>
+                        </div>
+                        <div class="r"></div>
+                      </a>
+                      <ul class="dropdown-menu sizes">
+                        <li>iOS</li>
+                        <li data-size="APPLE_IPHONE" class="active"><a href="#">iPhone</a></li>
+                        <li data-size="APPLE_IPAD"><a href="#">iPad</a></li>
+                        <li class="divider-line"></li>
+                        <li>Android</li>
+                        <li data-size="ANDROID_240x320"><a href="#">240x320</a></li>
+                        <li data-size="ANDROID_320x480"><a href="#">320x480</a></li>
+                        <li data-size="ANDROID_480x800"><a href="#">480x800</a></li>
+                        <li data-size="ANDROID_TABLET_600x1024"><a href="#">600x1024 (tablet)</a></li>
+                        <li data-size="ANDROID_TABLET_720x1280"><a href="#">720x1280 (tablet)</a></li>
+                        <li data-size="ANDROID_TABLET_800x1280"><a href="#">800x1280 (tablet)</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <a href="#" id="toolbar-rotate" class="standard-button l clearfix">
+                    <div class="l"></div>
+                    <div class="l-c">
+                      Rotate Device
+                    </div>
+                    <div class="r"></div>
+                  </a>
+                  <div class="divider"></div>
+                  <a href="#" id="toolbar-mode-design" class="standard-button l clearfix selected">
+                    <div class="l"></div>
+                    <div class="l-c">
+                      Design
+                    </div>
+                    <div class="r"></div>
+                  </a>
+                  <a href="#" id="toolbar-mode-preview" class="standard-button l clearfix">
+                    <div class="l"></div>
+                    <div class="l-c">
+                      Preview
+                    </div>
+                    <div class="r"></div>
+                  </a>
+                </div>
+                <!--
+                <div class="divider"></div>
+                <a href="#" id="toolbar-mode-inspector" class="standard-button l clearfix">
+                  <div class="l"></div>
+                  <div class="l-c">
+                    Inspector
+                  </div>
+                  <div class="r"></div>
+                </a>
+                -->
+                <!--
+                <a href="#" id="toolbar-view-phone" class="button l clearfix selected">
+                  <div class="l"></div>
+                  <div class="l-c">
+                    <div class="b-icon b-icon-phone"></div>
+                    Phone
+                  </div>
+                  <div class="r"></div>
+                </a>
+                <a href="#" id="toolbar-view-tablet" class="button l clearfix">
+                  <div class="l"></div>
+                  <div class="l-c">
+                    <div class="b-icon b-icon-tablet"></div>
+                    Tablet
+                  </div>
+                  <div class="r"></div>
+                </a>
+                <div class="divider"></div>
+                <a href="#" id="toolbar-view-orientation" class="button l clearfix">
+                  <div class="l"></div>
+                  <div class="l-c">
+                    Change Orientation
+                  </div>
+                  <div class="r"></div>
+                </a>
+                -->
+              </div>
+            </div>
+            
+            <div id="b-controls">
+              <div id="userview-control" class="userview clearfix">
+              </div>
+            </div>
+            
+            <div id="b">
+              
+              <!--
+              <div id="b-e-c">
+                <div id="b-e">
+                </div>
+              </div>
+              -->
+              <div id="b-r-c" class="clearfix">
+                <div id="b-r">
+                  <div id="b-c">
+                    <div id="b-ui">
+                      <div id="phone" class="interface-mode design active pane ui-layout-center">
+                        <div class="device portrait">
+                          <div class="t clearfix">
+                            <div class="l"></div>
+                            <div class="l-c"></div>
+                            <div class="r"></div>
+                          </div>
+                          <div class="m clearfix">
+                            <div class="l"></div>
+                            <div class="l-c">
+                              <div id="phone-drop" class="sized droptarget empty">
+                              </div>
+                              <div class="content sized">
+                                <iframe id="mobile-frame" src="/builder/s/mobile">
+                                </iframe>
+                              </div>
+                            </div>
+                            <div class="r"></div>
+                          </div>
+                          <div class="b clearfix">
+                            <div class="l"></div>
+                            <div class="l-c"></div>
+                            <div class="r"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--
+                      <div id="code" class="pane ui-layout-south code pullup collapsed">
+                        <div class="relative">
+                          <div class="inspector">
+                            <div id="code-editor"></div>
+                          </div>
+                        </div>
+                      </div>
+                      -->
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              
+              <div id="b-p-c" class="clearfix">
+                <div id="b-p">
+                  <div id="userview-property" class="userview clearfix">
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="f-w">
+        <div id="f">
+          &copy; 2011 Swell Studios, LLC
+        </div>
+      </div> 
+    </div> 
+    <div id="app-loading" class="loader" style="display: none">
+      <h1>Loading project...</h1>
+    </div>
+    <div id="app-loading-back" class="backdrop" style="display: none"></div>
+    
+    <div id="modal-signup" class="modal modal-signup" style="display: none">
+      <div class="modal-header">
+        <!--<a class="close" data-dismiss="modal">×</a>-->
+        <h3>Create a Codiqa Account</h3>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">
+          To save and share your apps, please create
+          a Codiqa account. You'll also get
+        </p>
+        <p>
+          <ul class="features">
+            <li><img src="/static/images/v3/home/pricing_projects_icon.png" /> Save Apps Online</li>
+            <li><div style="display: inline-block; background: url('/static/images/v2/icons/pages_icon_sprite.png') 0px -19px transparent; width: 16px; height: 20px"></div> Unlimited Pages</li>
+            <li><img src="/static/images/v3/home/pricing_theming_icon.png" /> Custom Theming</li>
+            <li><img src="/static/images/v3/home/pricing_sharing_icon.png" /> Unlimited Sharing</li>
+            <!--<li><img src="/static/images/v3/home/pricing_security_icon.png" /> SSL Security</li>-->
+          </ul>
+          <div class="text-center">
+            <div class="margin clearfix">
+              <a class="cbtn" target="top" href="/plans">
+                SIGN ME UP!
+              </a>
+            </div>
+            <div class="margin clearfix">
+              <a href="#" class="small" data-dismiss="modal">No thanks</a>
+            </div>
+          </div>
+        </p>
+      </div>
+    </div>
+    
+    <div id="modal-upgrade-now" class="modal modal-signup" style="display: none; width: 340px; height: 400px; margin: -200px 0px 0px -170px">
+      <div class="modal-header">
+        <h3>Upgrade to Save your App</h3>
+      </div>
+      <div class="modal-body">
+        <p>
+          Upgrade
+          to a premium account to save and share your apps. It's free for 30 days - no credit card required!
+        </p>
+        <p>
+          By upgrading you'll get...
+        </p>
+        <p>
+          <ul class="features" style="text-align: left; margin: 20px 0px; padding: 0px;">
+            <li><img src="/static/images/v3/home/pricing_projects_icon.png" /> Project Saving</li>
+            <li><img src="/static/images/v3/home/pricing_theming_icon.png" /> ThemeRoller Theme Support</li>
+            <li><img src="/static/images/v3/home/pricing_sharing_icon.png" /> App Sharing</li>
+          </ul>
+        </p>
+        
+        <div style="border-top: 1px solid #ccc; padding-top: 10px;">
+          <h4>Name your app:</h4>
+          <div class="margin">
+            <input type="text" placeholder="app name" />
+          </div>
+          <div class="clearfix margin">
+            <a class="cbtn upgrade">
+              Upgrade and save app
+            </a>
+          </div>
+          <div class="loading margin hidden">
+            Saving...
+          </div>
+          <div class="margin clearfix">
+            <a href="#" class="small" data-dismiss="modal">No thanks</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modal-upgrade" class="modal modal-signup" style="display: none">
+      <div class="modal-header">
+        <!--<a class="close" data-dismiss="modal">×</a>-->
+        <h3>Upgrade to Save your Apps</h3>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">
+          Please upgrade
+          to a Solo or Team account to save and share your apps. It's free for 30 days and no credit card
+          is required!
+        </p>
+        <p class="text-center">
+          By upgrading you'll get...
+        </p>
+        <p>
+          <ul class="features">
+            <li><img src="/static/images/v3/home/pricing_projects_icon.png" /> Project Saving</li>
+            <!--<li><img src="/static/images/v2/embed_download_icon.png" /> jQuery Mobile HTML Export</li>-->
+            <li><img src="/static/images/v3/home/pricing_theming_icon.png" /> Custom Theming</li>
+            <li><img src="/static/images/v3/home/pricing_sharing_icon.png" /> Unlimited App Sharing</li>
+            <li>and more</li>
+            <!--<li><img src="/static/images/v3/home/pricing_security_icon.png" /> SSL Security</li>-->
+          </ul>
+          <div class="text-center">
+            <div class="margin clearfix">
+              <a class="cbtn" target="top" href="/plans">
+                UPGRADE!
+              </a>
+            </div>
+            <div class="margin clearfix">
+              <a href="#" class="small" data-dismiss="modal">No thanks</a>
+            </div>
+          </div>
+        </p>
+      </div>
+    </div>
+    <div class="popup" id="popup-feedback"> <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dGl5VnhScTN3QUthYnIxdzQwSl8xM2c6MQ" width="500" height="470" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+    </div>
+    
+      
+    
+    <div id="popup-saving" class="popup">
+      Your application is downloading...please close this popup when finished.
+    </div>
+    <a id="popup-trigger-saving" href="#popup-saving"></a>
+    
+<script id="template-ui-pageview" type="text/x-handlebars-template">
+  <div class="b-h">
+    <div class="l"></div>
+    <div class="l-c">
+      PAGES
+      <!--<a href="#" id="add-page-link"><img src="/static/images/v1/builder/add.png" alt="Add" /></a>-->
+    </div>
+    <div class="l-r"></div>
+  </div>
+  <div class="b-el-content">
+    <ul class="item-list">
+      {{#each pages}}
+      <li>
+        <ul>
+          <li class="page" data-cid="{{ _id }}">
+          <a href="#"><div class="b-icon b-icon-page"></div>{{#ifequal isDefault.value "true"}}{{/ifequal}}{{ title.value }}</a>
+            <div class="r hidden">
+              <!--
+              <a href="#" class="button green renamepage">
+                <div class="l"></div>
+                <div class="l-c">Edit</div>
+                <div class="r"></div>
+              </a>
+              -->
+              <a href="#" class="button green duplicatepage">
+                <div class="l"></div>
+                <div class="l-c">duplicate</div>
+                <div class="r"></div>
+              </a>
+              <a href="#" class="button red deletepage">
+                <div class="l"></div>
+                <div class="l-c">Delete</div>
+                <div class="r"></div>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="b-el-icons bottom">
+    <div class="relative">
+      <div class="l-c">
+        <a href="#" class="newpage standard-button l clearfix" title="New page">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-newpage"></div>
+            New page
+          </div>
+          <div class="r"></div>
+        </a>
+        <!--<a href="#" class="b-icon-pagebar b-icon-duplicatepage inactive"></a>-->
+        <!--
+        <a href="#" class="deletepage button l clearfix inactive" title="Delete selected page">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-deletepage"></div>
+            Delete
+          </div>
+          <div class="r"></div>
+        </a>
+        
+        <a href="#" class="renamepage button l clearfix inactive" title="Rename selected page">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-deletepage"></div>
+            Rename
+          </div>
+          <div class="r"></div>
+        </a>
+        -->
+      </div>
+      <div class="r">
+      </div>
+    </div>
+  </div>
+</script>
+<script id="template-ui-controlview-down" type="text/x-handlebars-template">
+      <!--
+        {{#each categories}}
+        <div class="fg-accordion clearfix">
+          <div class="fg-collapsible">
+          <h3>{{name}}</h3>
+          <div class="content">
+          <ul class="icon-list clearfix">
+          {{#each controls}}
+            <li data-cid="{{controlId}}">
+            <div cid="{{controlId}}" class="jqm-icon-{{controlId}}">
+            </div>
+            <div class="label">
+              {{name}}
+            </div>
+            </li>
+          {{/each}}
+          </ul>
+          </div>
+        </div>
+      </div>
+        {{/each}}
+      -->
+</script>
+<script id="template-ui-controlview" type="text/x-handlebars-template">
+  <div class="b-h">
+    <div class="l"></div>
+    <div class="l-c">
+      COMPONENTS
+    </div>
+    <div class="l-r"></div>
+  </div>
+  <div class="b-el-content nano">
+    <div class="content">
+      <!--
+      <div class="tabs clearfix">
+        <ul>
+          {{#each categories}}
+          <li>
+            <a href="#cat-{{id}}" data-categoryid="{{id}}">{{name}}</a>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+      -->
+      <ul class="icon-list clearfix">
+      {{#each categories}}
+        {{#each controls}}
+          <li data-cid="{{controlId}}">
+            <div cid="{{controlId}}" class="jqm-icon jqm-icon-{{controlId}}">
+            </div>
+            <div class="label">
+              {{name}}
+            </div>
+          </li>
+        {{/each}}
+      {{/each}}
+      </ul>
+    </div>
+    <!--
+    <div class="content tabbable">
+      <ul class="nav tabs">
+        {{#each categories}}
+        <li>
+          <a data-toggle="tab" href="#cat-{{id}}" data-categoryid="{{id}}">{{name}}</a>
+        </li>
+        {{/each}}
+      </ul>
+      <div class="tab-content">
+        {{#each categories}}
+        <div class="tab-pane" id="cat-{{id}}">
+          <ul class="icon-list clearfix">
+            {{#each controls}}
+              <li data-cid="{{controlId}}">
+                <div cid="{{controlId}}" class="jqm-icon-{{controlId}}">
+                </div>
+                <div class="label">
+                  {{name}}
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    -->
+  </div>
+</script>
+<script id="template-ui-controlview-embedded" type="text/x-handlebars-template">
+  <div class="tabs clearfix">
+    <ul>
+      <li>
+        <a class="standard-button l clearfix button" href="#cat-all" data-categoryid="ALL">
+          <div class="l"></div>
+          <div class="l-c">
+            All
+          </div>
+          <div class="r"></div>
+        </a>
+      </li>
+      {{#each categories}}
+      <li>
+        <a class="standard-button l clearfix button" href="#cat-{{id}}" data-categoryid="{{id}}">
+          <div class="l"></div>
+          <div class="l-c">
+            {{name}}
+          </div>
+          <div class="r"></div>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <ul class="icon-list clearfix">
+  {{#each categories}}
+    {{#each controls}}
+      <li data-categoryid="{{../id}}" data-cid="{{controlId}}">
+        <div cid="{{controlId}}" class="jqm-icon-{{controlId}}">
+        </div>
+        <div class="label">
+          {{name}}
+        </div>
+      </li>
+    {{/each}}
+  {{/each}}
+  </ul>
+</script>
+<script id="template-ui-propertyview" type="text/x-handlebars-template">
+  <div class="b-h" style="display: none">
+    <div class="l"></div>
+    <div class="l-c title">
+    </div>
+    <div class="l-r"></div>
+  </div>
+  <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div><div class="bottom"></div></div></div></div>
+  <div class="viewport">
+    <div class="overview">
+    </div>
+  </div>
+</script>
+<script id="template-ui-themeview" type="text/x-handlebars-template">
+  <div class="b-el-content">
+    <div id="theme-list">
+      <select>
+        <option value="a">JQM A</option>
+        <option value="b">JQM "B"</option>
+        <option value="c">JQM "C"</option>
+        <option value="d">JQM "D"</option>
+        <option value="e">JQM "E"</option>
+      </select>
+    </div>
+  </div>
+</script>
+
+<script id="template-widget-nullwidget" type="text/x-handlebars-tmpl">
+<div>
+</div>
+</script>
+<script id="template-widget-singletext" type="text/x-handlebars-tmpl">
+  <div class="fg clearfix">
+    <div class="fl">{{_property_title}}</div>
+    <div class="fe">
+      <input class="ui-input-text ui-corner-all ui-shadow-inset ui-body-c" type="text" value="{{text}}" />
+    </div>
+  </div>
+</script>
+<script id="template-widget-pixelsize" type="text/x-handlebars-tmpl">
+  <div class="fg clearfix">
+    <div class="fl">{{_property_title}}</div>
+    <div class="fe">
+    <input type="text" value="{{value}}" size="6" class="val" /> <input type="radio" value="px" name="{{_wid}}-units" {{#ifequal units "px"}} checked{{/ifequal}}/> px <input type="radio" name="{{_wid}}-units" value="%"{{#ifequal units "%"}} checked{{/ifequal}}/> %
+    </div>
+  </div>
+</script>
+<script id="template-widget-multitext" type="text/x-handlebars-tmpl">
+  <div class="fg clearfix">
+    <div class="fl">{{_property_title}}</div>
+    <div class="fe">
+      <textarea>{{{text}}}</textarea>
+    </div>
+  </div>
+</script>
+<script id="template-widget-wysi" type="text/x-handlebars-tmpl">
+  <div class="clearfix">
+    <div class="toolbar clearfix">
+      <a class="ed-icon-bold" data-wysihtml5-command="bold" title="CTRL+B"><div class="i"></div></a>
+      <a class="ed-icon-italic" data-wysihtml5-command="italic" title="CTRL+I"><div class="i"></div></a>
+      <!--<a data-wysihtml5-command="createLink"><div class="i"></div></a>-->
+      <!--<a data-wysihtml5-command="insertImage"><div class="i"></div></a> |-->
+      <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">H1</a>
+      <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">H2</a>
+      <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h3">H3</a>
+      <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h4">H4</a>
+      <a class="ed-icon-ul" data-wysihtml5-command="insertUnorderedList"><div class="i"></div></a>
+      <a class="ed-icon-ol" data-wysihtml5-command="insertOrderedList"><div class="i"></div></a> 
+      <a style="float: right" data-wysihtml5-action="change_view">&lt;html&gt;</a>
+    </div>
+    <textarea class="holder">{{{text}}}</textarea>
+  </div>
+</script>
+<script id="template-widget-urlorpage" type="text/x-handlebars-tmpl">
+  <div class="fg clearfix">
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    <div class="fg-content">
+      <div class="fl">
+        Page
+      </div>
+      <div class="fw">
+      </div>
+      <div class="f-or">
+        <em>OR</em>
+      </div>
+      <div class="fl">
+        <label>URL</label>
+      </div>
+      <div class="fe">
+        <input type="text" value="" />
+      </div>
+    </div>
+  </div>
+</script>
+<script id="template-widget-urlorupload" type="text/x-handlebars-tmpl">
+  <div class="fg clearfix">
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    <div class="fg-content">
+      <!--
+      <div class="fl">
+        Upload Image
+      </div>
+      <div class="fw">
+        <div class="file-uploader">
+          <noscript>
+            <p>Please enable js to use fileuploader</p>
+          </noscript>
+        </div>
+      </div>
+      <div class="f-or">
+        <em>OR</em>
+      </div>
+      -->
+      <div class="fl">
+        <label>URL of image</label>
+      </div>
+      <div class="fe">
+        <input class="url" type="text" value="${text}" />
+      </div>
+    </div>
+  </div>
+</script>
+<script id="template-widget-image" type="text/x-handlebars-tmpl">
+  <div class="fg clearfix">
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    <div class="fe">
+      <div class="fw">
+        <div class="file-uploader" style="height: 30px">
+          <noscript>
+            <p>Please enable js to use fileuploader</p>
+          </noscript>
+        </div>
+      </div>
+      <div>
+        <select class="assets">
+          <option class="default" value=""></option>
+        </select>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="template-widget-select" type="text/x-handlebars-tmpl">
+  <div class="{{#if _property_title}}fg{{/if}} clearfix">
+    {{#if _property_title}}
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    {{/if}}
+    <div class="fe clearfix">
+        <select class="small">
+          {{#each options}}
+          <option value="{{ value }}"{{#if selected}} selected{{/if}}>{{ text }}</option>
+          {{/each}}
+        </select>
+    </div>
+  </div>
+</script>
+
+<script id="template-widget-transitionselect" type="text/x-handlebars-tmpl">
+  <div class="clearfix">
+    {{#if _property_title}}
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    {{/if}}
+    <div class="fe clearfix">
+      <select class="transitions small">
+      {{#each transitions}}
+        <option value="{{value}}" {{#if selected}}selected{{/if}}>{{key}}</option>
+      {{/each}}
+      </select>
+    </div>
+  </div>
+</script>
+<!--
+<script id="template-widget-listitems" type="text/x-handlebars-tmpl">
+  <div class="fg">
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    <div class="fg-content">
+      <div class="fe">
+        <ul class="listoflistitems-items">
+          <li></li>
+        </ul>
+      </div>
+      <div class="fl">
+        <label>Link to page:</label> {{{pageSelect}}}
+      </div>
+      <div class="fe">
+        <input placeholder="Button text" type="text" value="{{text}}" /> <a href="#" class="add b-icon b-icon-add"></a>
+      </div>
+    </div>
+  </div>
+  <div class="fg">
+    <div class="fg-content">
+      <div class="fe">
+        <ul>
+        {{#each items}}
+          <li>
+            <b>{{text}}</b> linked to <b>{{url}}</b>
+          </li>
+        {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</script>
+-->
+<script id="template-widget-listitems" type="text/x-handlebars-tmpl">
+  <div class="fg">
+    <div class="clearfix">
+      <div class="fl">
+        {{_property_title}}
+      </div>
+    </div>
+    <div class="fg-accordion sortable clearfix">
+      {{#listitems_render items}}{{/listitems_render}}
+    </div>
+    <div class="fake add-button fg-accordion ui-accordion clearfix">
+      <div class="fg-collapsible">
+        <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-top">
+          <span class="bui-icon bui-icon-plus"></span>
+          New button
+        </h3>
+      </div>
+    </div>
+    <div class="fake add-divider fg-accordion ui-accordion clearfix">
+      <div class="fg-collapsible">
+        <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-top">
+          <span class="bui-icon bui-icon-plus"></span>
+          New divider
+        </h3>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="sub-template-widget-listitems" type="text/x-handlebars-tmpl">
+  <div class="fg-collapsible" data-isdivider="{{isDivider}}">
+    <h3>{{text}}</h3>
+    <div class="content">
+      {{#if isDivider}}
+      <div class="fl">
+        <label>Text</label>
+      </div>
+      <div class="fe">
+        <input placeholder="Button text" type="text" value="{{text}}" /> 
+      </div>
+      <div class="fe b-el-icons clearfix">
+        <a href="#" class="remove standard-button l clearfix">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-deletepage"></div>
+            Delete divider
+          </div>
+          <div class="r"></div>
+        </a>
+      </div>
+      {{else}}
+      <div class="fl">
+        <label>Text</label>
+      </div>
+      <div class="fe">
+        <input placeholder="Button text" type="text" value="{{text}}" /> 
+      </div>
+      <div class="fl">
+        <label>Link to page:</label> {{{pageSelect}}}
+      </div>
+      <div class="fl">
+        <label>Link transition:</label> {{{transitionSelect}}}
+      </div>
+      <div class="fl">
+        <label>Theme</label> {{{themeSelect}}}
+      </div>
+      <div class="fe b-el-icons clearfix">
+        <a href="#" class="remove standard-button l clearfix">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-deletepage"></div>
+            Delete button
+          </div>
+          <div class="r"></div>
+        </a>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</script>
+<script id="template-widget-headerbuttonitems" type="text/x-handlebars-tmpl">
+  <div class="fg">
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    <div class="fg-accordion sortable clearfix">
+      {{#headerbuttonitems_render items}}{{/headerbuttonitems_render}}
+    </div>
+    <div class="fake add fg-accordion ui-accordion clearfix">
+      <div class="fg-collapsible">
+        <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-top">
+          <span class="bui-icon bui-icon-plus"></span>
+          New button
+        </h3>
+      </div>
+    </a>
+  </div>
+</script>
+<script id="sub-template-widget-headerbuttonitems" type="text/x-handlebars-tmpl">
+  <div class="fg-collapsible">
+    <h3>{{text}}</h3>
+    <div class="content">
+      <div class="fg clearfix">
+        <div class="fl">
+          <label>Text</label>
+        </div>
+        <div class="fe">
+          <input placeholder="Button text" type="text" value="{{text}}" /> 
+        </div>
+      </div>
+      <div class="fg clearfix">
+        <div class="fl">
+          <label>Link to page:</label> 
+        </div>
+        <div class="fe">
+          {{{pageSelect}}}
+        </div>
+      </div>
+      <div class="fg clearfix">
+        <div class="fl">
+          <label>Theme</label> 
+        </div>
+        <div class="fe">
+          {{{themeSelect}}}
+        </div>
+      </div>
+      <div class="fg clearfix">
+        <div class="fl isBack">
+          <label>Reverse page transition</label>
+        </div>
+        <div class="fe">
+          {{{backSelect}}}
+        </div>
+      </div>
+      <div class="fg clearfix">
+        <div class="fl">
+          <label>Icon:</label>
+        </div>
+        <div class="fe">
+          {{{iconSelect}}}
+        </div>
+      </div>
+      <div class="fe b-el-icons clearfix">
+        <a href="#" class="remove standard-button l clearfix">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-deletepage"></div>
+            Delete button
+          </div>
+          <div class="r"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="template-widget-buttonlistitems" type="text/x-handlebars-tmpl">
+  <div class="fg">
+    <div class="clearfix">
+      <div class="fl">
+        {{_property_title}}
+      </div>
+    </div>
+    <div class="fg-accordion sortable clearfix">
+      {{#buttonlistitems_render items}}{{/buttonlistitems_render}}
+    </div>
+    <div class="fake add fg-accordion ui-accordion clearfix">
+      <div class="fg-collapsible">
+        <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-top">
+          <span class="bui-icon bui-icon-plus"></span>
+          New button
+        </h3>
+      </div>
+    </a>
+  </div>
+</script>
+<script id="sub-template-widget-buttonlistitems" type="text/x-handlebars-tmpl">
+  <div class="fg-collapsible">
+    <h3>{{text}}</h3>
+    <div class="content">
+      <div class="fl">
+        <label>Text</label>
+      </div>
+      <div class="fe">
+        <input placeholder="Button text" type="text" value="{{text}}" /> 
+      </div>
+      <div class="fl isActive">
+        <label>Is initially active?</label> {{{isActiveSelect}}}
+      </div>
+      <div class="fl">
+        <label>Link to page:</label> {{{pageSelect}}}
+      </div>
+      <div class="fl">
+        <label>Theme</label> {{{themeSelect}}}
+      </div>
+      <div class="fl">
+        <label>Icon:</label> {{{iconSelect}}}
+      </div>
+      <div class="fe b-el-icons clearfix">
+        <a href="#" class="remove standard-button l clearfix">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-deletepage"></div>
+            Delete button
+          </div>
+          <div class="r"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="template-widget-textvalueitems" type="text/x-handlebars-tmpl">
+  <div class="fg">
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    <div class="fg-accordion sortable clearfix">
+      {{#textvalueitems_render items}}{{/textvalueitems_render}}
+    </div>
+    <div class="fake add fg-accordion ui-accordion clearfix">
+      <div class="fg-collapsible">
+        <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-top">
+          <span class="bui-icon bui-icon-plus"></span>
+          New button
+        </h3>
+      </div>
+    </a>
+  </div>
+</script>
+<script id="sub-template-widget-textvalueitems" type="text/x-handlebars-tmpl">
+  <div class="fg-collapsible">
+    <h3>{{text}}</h3>
+    <div class="content">
+      <div class="fl">
+        <label>Text</label>
+      </div>
+      <div class="fe">
+        <input class="key" placeholder="Button text" type="text" value="{{text}}" /> 
+      </div>
+      <div class="fl">
+        <label>Value</label>
+      </div>
+      <div class="fe">
+        <input class="value" placeholder="Button value" type="text" value="{{value}}" /> 
+      </div>
+      <div class="fl">
+        <label>Theme</label> {{{themeSelect}}}
+      </div>
+      <div class="fe b-el-icons clearfix">
+        <a href="#" class="remove standard-button l clearfix">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-deletepage"></div>
+            Delete button
+          </div>
+          <div class="r"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="template-widget-radioitems" type="text/x-handlebars-tmpl">
+  <div class="fg">
+    <div class="clearfix">
+      <div class="fl">
+        {{_property_title}}
+      </div>
+    </div>
+    <div class="fg-accordion sortable clearfix">
+      {{#radioitems_render items}}{{/radioitems_render}}
+    </div>
+    <div class="fake add fg-accordion ui-accordion clearfix">
+      <div class="fg-collapsible">
+        <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-top">
+          <span class="bui-icon bui-icon-plus"></span>
+          New button
+        </h3>
+      </div>
+    </a>
+  </div>
+</script>
+<script id="sub-template-widget-radioitems" type="text/x-handlebars-tmpl">
+  <div class="fg-collapsible">
+    <h3>{{text}}</h3>
+    <div class="content">
+      <div class="fl">
+        <label>Text</label>
+      </div>
+      <div class="fe">
+        <input class="key" placeholder="Button text" type="text" value="{{text}}" /> 
+      </div>
+      <div class="fl">
+        <label>Value</label>
+      </div>
+      <div class="fe">
+        <input class="value" placeholder="Button value" type="text" value="{{value}}" /> 
+      </div>
+      <!--
+      <div class="fl">
+        <label>Theme</label> {{{themeSelect}}}
+      </div>
+      -->
+      <div class="fe b-el-icons clearfix">
+        <a href="#" class="remove standard-button l clearfix">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-deletepage"></div>
+            Delete button
+          </div>
+          <div class="r"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="template-widget-checkboxitems" type="text/x-handlebars-tmpl">
+  <div class="fg">
+    <div class="clearfix">
+      <div class="fl">
+        {{_property_title}}
+      </div>
+    </div>
+    <div class="fg-accordion sortable clearfix">
+      {{#checkboxitems_render items}}{{/checkboxitems_render}}
+    </div>
+    <div class="fake add fg-accordion ui-accordion clearfix">
+      <div class="fg-collapsible">
+        <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-top">
+          <span class="bui-icon bui-icon-plus"></span>
+          New button
+        </h3>
+      </div>
+    </a>
+  </div>
+</script>
+<script id="sub-template-widget-checkboxitems" type="text/x-handlebars-tmpl">
+  <div class="fg-collapsible">
+    <h3>{{text}}</h3>
+    <div class="content">
+      <div class="fl">
+        <label>Text</label>
+      </div>
+      <div class="fe">
+        <input class="key" placeholder="Button text" type="text" value="{{text}}" /> 
+      </div>
+      <!--
+      <div class="fl">
+        <label>Theme</label> {{{themeSelect}}}
+      </div>
+      -->
+      <div class="fe b-el-icons clearfix">
+        <a href="#" class="remove standard-button l clearfix">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-deletepage"></div>
+            Delete button
+          </div>
+          <div class="r"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="template-widget-collapsiblesections" type="text/x-handlebars-tmpl">
+  <div class="fg">
+    <div class="clearfix">
+      <div class="fl">
+        {{_property_title}}
+      </div>
+    </div>
+    <div class="fg-accordion sortable clearfix">
+      {{#collapsiblesections_render items}}
+      {{/collapsiblesections_render}}
+    </div>
+    <div class="fake add fg-accordion ui-accordion clearfix">
+      <div class="fg-collapsible">
+        <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-top">
+          <span class="bui-icon bui-icon-plus"></span>
+          New section 
+        </h3>
+      </div>
+    </a>
+  </div>
+</script>
+<script id="sub-template-widget-collapsiblesections" type="text/x-handlebars-tmpl">
+  <div class="fg-collapsible">
+    <h3>{{text}}</h3>
+    <div class="content clearfix">
+      <div class="fl">
+        <label>Text</label>
+      </div>
+      <div class="fe">
+        <input placeholder="Button text" type="text" value="{{text}}" /> 
+      </div>
+      <div class="fl is-collapsed">
+        <label>Is collapsed:</label> {{{isCollapsedSelect}}}
+      </div>
+      <div class="fe b-el-icons clearfix">
+        <a href="#" class="remove standard-button l clearfix">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-deletepage"></div>
+            Delete section
+          </div>
+          <div class="r"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="template-widget-mapmarker" type="text/x-handlebars-tmpl">
+  <div class="fg">
+    <div class="clearfix">
+      <div class="fl">
+        {{_property_title}}
+      </div>
+    </div>
+    <div class="fg-accordion sortable clearfix">
+      {{#mapmarkers_render items}}{{/mapmarkers_render}}
+    </div>
+    <div class="fake add-button fg-accordion ui-accordion clearfix">
+      <div class="fg-collapsible">
+        <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-top">
+          <span class="bui-icon bui-icon-plus"></span>
+          New marker
+        </h3>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="sub-template-widget-mapmarkers" type="text/x-handlebars-tmpl">
+  <div class="fg-collapsible">
+    <h3>{{location}}</h3>
+    <div class="content clearfix">
+      <div class="fl">
+        <label>Location</label>
+      </div>
+      <div class="fe">
+        <input placeholder="Location" type="text" class="location" value="{{location}}" /> 
+      </div>
+      <div class="fe b-el-icons clearfix">
+        <a href="#" class="remove standard-button l clearfix">
+          <div class="l"></div>
+          <div class="l-c">
+            <div class="b-icon b-icon-deletepage"></div>
+            Delete marker 
+          </div>
+          <div class="r"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="template-widget-pageselect" type="text/x-handlebars-tmpl">
+  <div class="{{#if _property_title}}fg{{/if}} clearfix"> 
+    {{#if _property_title}}
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    {{/if}}
+    <div class="fe clearfix">
+      <div class="fw">
+        <select class="pages small">
+          {{#each pages}}
+          <option class="page" value="{{value}}" {{#if selected}}selected{{/if}}>{{key}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="template-widget-iconselect" type="text/x-handlebars-tmpl">
+  <div class="{{#if _property_title}}fg{{/if}} clearfix">
+    {{#if _property_title}}
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    {{/if}}
+    <div class="fe clearfix">
+      {{#if icons}}
+      <div class="l">
+        <select class="icons static">
+        {{#each icons}}
+          <option value="{{value}}" {{#if selected}}selected{{/if}}>{{key}}</option>
+        {{/each}}
+        </select>
+      </div>
+      {{/if}}
+      {{#if align}}
+      <div class="l radio-set">
+        <a title="icon align left" class="radio radio-left{{#ifequal align "left"}} selected{{/ifequal}}" href="#" data-align="left">
+          <div class="icon icon-align-left"></div>
+        </a>
+        <a title="icon align top" class="radio radio-center{{#ifequal align "top"}} selected{{/ifequal}}" href="#" data-align="top">
+          <div class="icon icon-align-top"></div>
+        </a>
+        <a title="icon align bottom" href="#" class="radio radio-center{{#ifequal align "bottom"}} selected{{/ifequal}}" data-align="bottom">
+          <div class="icon icon-align-bottom"></div>
+        </a>
+        <a title="icon align right" href="#" class="radio radio-right{{#ifequal align "right"}} selected{{/ifequal}}" data-align="right">
+          <div class="icon icon-align-right"></div>
+        </a>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</script>
+<script id="template-widget-iconalignselect" type="text/x-handlebars-tmpl">
+  <div class="{{#if _property_title}}fg{{/if}} clearfix">
+    {{#if _property_title}}
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    {{/if}}
+    <div class="fe clearfix">
+      <select class="icons static">
+        <option value="left"{{#if selected}}selected{{/if}}>Left</option>
+        <option value="top"{{#if selected}}selected{{/if}}>Top</option>
+        <option value="bottom"{{#if selected}}selected{{/if}}>Bottom</option>
+        <option value="right"{{#if selected}}selected{{/if}}>Right</option>
+        <option value="notext"{{#if selected}}selected{{/if}}>No Text</option>
+      </select>
+    </div>
+  </div>
+</script>
+<script id="template-widget-themeselect" type="text/x-handlebars-tmpl">
+  <div class="{{#if _property_title}}fg{{/if}} clearfix">
+    {{#if _property_title}}
+    <div class="fl">
+      {{_property_title}}
+    </div>
+    {{/if}}
+    <div class="fe clearfix">
+      <select class="themes small">
+      {{#each themes}}
+      <option value="{{value}}"{{#if selected}} selected{{/if}}>{{key}}</option>
+      {{/each}}
+      </select>
+    </div>
+  </div>
+</script>
+
+<script id="template-control-app" type="text/x-handlebars-template">
+  <div>
+  </div>
+</script>
+<!--data-url="{{__control._id}}" -->
+<script id="template-control-page" type="text/x-handlebars-template">
+  <div data-role="page" {{#property theme}}data-theme="{{theme.property.value}}"{{/property}} id="{{__control._id}}">
+  </div>
+</script>
+<script id="template-control-pagecontent" type="text/x-handlebars-template">
+    <div data-role="content">
+    </div>
+</script>
+<script id="template-control-pageheader" type="text/x-handlebars-template">
+  <div data-theme="{{theme.property.value}}" data-role="header" {{#property isFixed}}data-position="{{isFixed.property.value}}"{{/property}}>
+  </div>
+</script>
+<script id="template-control-collapsible" type="text/x-handlebars-template">
+  <div data-role="collapsible-set" data-theme="{{headerTheme.property.value}}" data-content-theme="{{contentTheme.property.value}}">
+  </div>
+</script>
+<script id="template-control-collapsiblecontent" type="text/x-handlebars-template">
+  <div data-role="collapsible" data-collapsed="{{isCollapsed.property.value}}">
+    <h3>{{headerText.property.value}}</h3>
+  </div>
+</script>
+<!--
+  {{#ifgreater sections.property.value.length 1}}
+  {{else}}
+  {{/ifgreater}}
+    <!--
+    {{#each sections.property.value}}
+    <div data-role="collapsible" data-collapsed="{{isCollapsed}}"> 
+      <h3>{{text}}</h3>
+    </div>
+    {{/each}}
+-->
+<!--
+    {{#ifgreater sections.property.value.length 0}}
+  <div data-role="collapsible" data-theme="{{headerTheme.property.value}}" data-content-theme="{{contentTheme.property.value}}" data-collapsed="{{sections.property.value.0.isCollapsed}}">
+    <h3>{{sections.property.value.0.text}}</h3>
+  </div>
+    {{/ifgreater}}
+  {{/ifgreater}}
+-->
+<script id="template-control-accordion" type="text/x-handlebars-template">
+  <div data-role="collapsible-set">
+  </div>
+</script>
+<script id="template-control-grid" type="text/x-handlebars-template">
+  <div class="ui-grid-{{#gridclass columns.property.value}}{{/gridclass}}">
+  </div>
+</script>
+<script id="template-control-gridblock" type="text/x-handlebars-template">
+  <div>
+  </div>
+</script>
+<script id="template-control-navbar" type="text/x-handlebars-template">
+  <div data-role="navbar" data-iconpos="{{iconPos.property.value.align}}">
+    <ul>
+    {{#each items.property.value}}
+      <li><a href="#{{url}}" data-theme="{{theme}}" data-icon="{{icon}}" {{#if isActive}}class="ui-btn-active"{{/if}}>{{text}}</a></li>
+    {{/each}}
+    </ul>
+  </div>
+</script>
+<script id="template-control-pagefooter" type="text/x-handlebars-template">
+  <div data-theme="{{theme.property.value}}" data-role="footer" {{#property isFixed}}data-position="{{isFixed.property.value}}"{{/property}}>
+  </div>
+</script>
+<script id="template-control-heading" type="text/x-handlebars-template">
+  <h{{{ size.property.value }}}>{{ text.property.value }}</h{{ size.property.value }}>
+</script>
+<script id="template-control-textblock" type="text/x-handlebars-template">
+  <div>{{{ text.property.value }}}</div>
+</script>
+<script id="template-control-link" type="text/x-handlebars-template">
+  <div>
+    <a href="{{url.property.value}}" data-transition="{{transition.property.value}}">{{text.property.value}}</a>
+  </div>
+</script>
+<script id="template-control-listview" type="text/x-handlebars-template">
+  <ul data-role="listview" data-divider-theme="{{dividerTheme.property.value}}" data-inset="{{displayInset.property.value}}">
+    {{#each items.property.value}}
+      {{#if isDivider}}
+      <li data-role="list-divider" role="heading">
+        {{text}}
+      </li>
+      {{else}}
+      <li data-theme="{{theme}}"><a href="#{{url}}" data-transition="{{transition}}">{{text}}</a></li>
+      {{/if}}
+    {{/each}}
+  </ul>
+</script>
+<script id="template-control-button" type="text/x-handlebars-template">
+  <a data-role="button" {{#property isInline}}data-inline="{{isInline.property.value}}"{{/property}} {{#ifequal isReverseTransition.property.value "true"}} data-direction="reverse"{{/ifequal}}{{#ifequal isBackButton.property.value "true"}} data-rel="back"{{/ifequal}} data-transition="{{transition.property.value}}" {{#property theme}}data-theme="{{theme.property.value}}"{{/property}} href="{{url.property.value}}" {{#if icon.property.value.icon}}data-icon="{{icon.property.value.icon}}" data-iconpos="{{icon.property.value.align}}"{{/if}}>
+    {{{ text.property.value }}}
+  </a>
+</script>
+<script id="template-control-image" type="text/x-handlebars-template">
+  {{#ifemptystring url.property.value}}
+    {{#ifequal displayMode.property.value "block"}}
+      <div style="width: {{width.property.value.value}}{{width.property.value.units}}; height: {{height.property.value.value}}{{height.property.value.units}}; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;">
+        <img src="http://codiqa.com/static/images/v2/image.png" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px"/>
+      </div>
+    {{else}}
+        <img src="http://codiqa.com/static/images/v2/image.png" alt="image"/>
+    {{/ifequal}}
+  {{else}}
+      <div style="{{#property displayMode}}display: {{displayMode.property.value}}{{/property}}{{#property align}} text-align:{{ align.property.value}}{{/property}}">
+        <img style="width: {{width.property.value.value}}{{width.property.value.units}}; height: {{height.property.value.value}}{{height.property.value.units}}" src="{{url.property.value}}"/>
+      </div>
+  {{/ifemptystring}}
+</script>
+
+<!-- FORMS -->
+<script id="template-control-form" type="text/x-handlebars-template">
+  <form action="{{url.property.value}}"{{#property action}} method="{{action.property.value}}"{{/property}}{{#property ajax}} data-ajax="false"{{/property}}>
+    {{#ifempty __control.children}}
+    &lt;form&gt;
+    {{/ifempty}}
+  </form>
+</script>
+<script id="template-control-textinput" type="text/x-handlebars-template">
+  <div data-role="fieldcontain">
+    <fieldset data-role="controlgroup"{{#property isMini}} data-mini="{{isMini.property.value}}"{{/property}}>
+      <label for="{{__control._id}}">{{title.property.value}}</label>
+      <input id="{{__control._id}}" placeholder="{{placeholder.property.value}}" value="{{text.property.value}}" type="{{type.property.value}}"/>
+    </fieldset>
+  </div>
+</script>
+<script id="template-control-textarea" type="text/x-handlebars-template">
+  <div data-role="fieldcontain">
+    <fieldset data-role="controlgroup">
+      <label for="{{__control._id}}">{{title.property.value}}</label>
+      <textarea id="{{__control._id}}" placeholder="{{placeholder.property.value}}"{{#property isMini}} data-mini="{{isMini.property.value}}"{{/property}}>{{text.property.value}}</textarea>
+    </fieldset>
+  </div>
+</script>
+
+<script id="template-control-toggleswitch" type="text/x-handlebars-template">
+  <div data-role="fieldcontain">
+    <fieldset data-role="controlgroup">
+      <label for="{{__control._id}}">{{title.property.value}}</label>
+      <select name="{{__control._id}}" id="{{__control._id}}" data-theme="{{theme.property.value}}" data-role="slider"{{#property isMini}} data-mini="{{isMini.property.value}}"{{/property}}>
+        <option value="off">{{off.property.value}}</option>
+        <option value="on">{{on.property.value}}</option>
+      </select>
+    </div>
+  </div>	
+</script>
+<script id="template-control-radiobuttons" type="text/x-handlebars-template">
+  <div data-role="fieldcontain">
+    <fieldset data-role="controlgroup" data-type="{{ orientation.property.value }}"{{#property isMini}} data-mini="{{isMini.property.value}}"{{/property}}>
+      <legend>{{title.property.value}}</legend>
+    </fieldset>
+  </div>
+</script>
+<script id="template-control-radio" type="text/x-handlebars-template">
+      <input name="{{__control.parentControl._id}}" id="{{__control._id}}" value="{{value.property.value}}" type="radio" />
+      <label for="{{__control._id}}">{{title.property.value}}</label>
+</script>
+<script id="template-control-checkboxes" type="text/x-handlebars-template">
+  <div data-role="fieldcontain">
+    <fieldset data-role="controlgroup" data-type="{{ orientation.property.value }}"{{#property isMini}} data-mini="{{isMini.property.value}}"{{/property}}>
+      <legend>{{title.property.value}}</legend>
+    </fieldset>
+  </div>
+</script>
+<script id="template-control-checkbox" type="text/x-handlebars-template">
+      <input name="{{__control._id}}" id="{{__control._id}}" type="checkbox" />
+      <label for="{{__control._id}}">{{title.property.value}}</label>
+</script>
+<script id="template-control-checkbox_OLD" type="text/x-handlebars-template">
+      <input data-theme="{{theme}}" name="{{__control._id}}" id="{{__control.id}}" type="checkbox" value="{{value}}" />
+      <label for="{{checkvalue}}">{{text}}</label>
+</script>
+<script id="template-control-selectmenu" type="text/x-handlebars-template">
+  <div data-role="fieldcontain">
+    <label for="{{__control._id}}">{{ title.property.value }}</label>
+    <select{{#property isNative}} data-native-menu="{{isNative.property.value}}"{{/property}} name="{{__control._id}}" id="{{__control._id}}"{{#property theme}} data-theme="{{theme.property.value}}"{{/property}}{{#property isMini}} data-mini="{{isMini.property.value}}"{{/property}}>
+    {{#each items.property.value}}
+      <option value="{{value}}">{{text}}</option>
+    {{/each}}
+    </select>
+  </div>
+</script>
+
+<script id="template-control-youtube" type="text/x-handlebars-template">
+  <iframe id="{{__control._id}}" type="text/html" width="{{width.property.value}}" height="{{height.property.value}}"
+  src="http://www.youtube.com/embed/{{videoId.property.value}}"
+    frameborder="0"></iframe>
+</script>
+<script id="template-control-googlemaps" type="text/x-handlebars-template">
+<img src="https://maps.googleapis.com/maps/api/staticmap?center={{loc.property.value}}&zoom={{zoom.property.value}}&size={{width.property.value}}x{{height.property.value}}&markers={{markerparams markers.property.value}}&sensor=false" width="{{width.property.value}}" height="{{height.property.value}}" />
+</script>
+<script id="template-control-googlemapsjs" type="text/x-handlebars-template">
+  <div>
+    <script type="text/javascript">
+      $('#{{__control._id}}').remove();
+    {{{endscript}}}
+    <div id="{{__control._id}}" class="google-map" style="width: 288px; height: 270px">
+    </div>
+    <script type="text/javascript">
+      delete window['mapInit_{{__control._id}}'];
+      window['mapInit_{{__control._id}}'] = function() {
+        var myOptions = {
+          center: new google.maps.LatLng({{lat.property.value}}, {{lng.property.value}}),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+
+        var map = new google.maps.Map(document.getElementById("{{__control._id}}"),
+            myOptions);
+      }
+
+      $(document).ready(function() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "http://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit_{{__control._id}}";
+        document.getElementsByTagName("head")[0].appendChild(script);
+      });
+    {{{endscript}}}
+  </div>
+</script>
+
+<!-- not used right now -->
+<script id="template-control-selectmenu-grouped" type="text/x-handlebars-template">
+  <div data-role="fieldcontain">
+    <fieldset data-role="controlgroup" data-type="{{ orientation.property.value }}">
+      <label for="{{__control._id}}">{{ title.property.value }}</label>
+      <select name="{{__control._id}}" id="{{__control._id}}"{{#property theme}} data-theme="{{theme.property.value}}"{{/property}}>
+      {{#each items.property.value}}
+        <option value="{{value}}">{{text}}</option>
+      {{/each}}
+      </select>
+    </fieldset>
+  </div>
+</script>
+<script id="template-control-submitbutton" type="text/x-handlebars-template">
+  <input type="submit"{{#property isInline}}data-inline="{{isInline.property.value}}"{{/property}} {{#property theme}}data-theme="{{theme.property.value}}"{{/property}} {{#if icon.property.value.icon}}data-icon="{{icon.property.value.icon}}" data-iconpos="{{icon.property.value.align}}"{{/if}} value="{{{ text.property.value }}}"{{#property isMini}} data-mini="{{isMini.property.value}}"{{/property}} />
+</script>
+<script id="template-control-slider" type="text/x-handlebars-template">
+  <div data-role="fieldcontain">
+    <fieldset data-role="controlgroup"{{#property isMini}} data-mini="{{isMini.property.value}}"{{/property}}>
+      <label for="{{__control._id}}">{{title.property.value}}</label>
+      <input type="range" name="slider" id="{{__control._id}}" value="{{value.property.value}}" min="{{min.property.value}}" max="{{max.property.value}}" data-highlight="{{isHighlight.property.value}}"{{#property theme}} data-theme="{{theme.property.value}}"{{/property}}{{#property trackTheme}} data-track-theme="{{trackTheme.property.value}}"{{/property}}/>
+    </fieldset>
+  </div>
+</script>
+
+
+    
+    <script type="text/javascript">
+      var _kmq = _kmq || [];
+      function _kms(u){
+        setTimeout(function(){
+          var s = document.createElement('script'); var f = document.getElementsByTagName('script')[0]; s.type = 'text/javascript'; s.async = true;
+          s.src = u; f.parentNode.insertBefore(s, f);
+        }, 1);
+      }
+      _kms('//i.kissmetrics.com/i.js');_kms('//doug1izaerwt3.cloudfront.net/449ac882a00041d1cee4ecb84dfa0531121d453a.1.js');
+    </script>
+    
+    <script type="text/javascript">
+      window.App = new Builder;
+      
+        
+        
+      
+      
+      
+
+      $(document).ready(function() {
+        window.App.onDocumentReady();
+        //window.App.setTempAppId('');
+      });
+
+      
+    </script>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-26244071-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+    
+    <script type="text/javascript" charset="utf-8">
+      window.twttr = (function (d,s,id) {
+        var t, js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+        js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+        return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+      }(document, "script", "twitter-wjs"));
+
+     twttr.ready(function (twttr) {
+         twttr.events.bind('tweet', function(tweet) {
+            parent._kmq.push(['record', 'tweeted temp app']);
+         });
+     });
+    </script>
+    
+  </body>
+</html>
